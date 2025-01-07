@@ -1,0 +1,121 @@
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    width: 90%;
+    height: 600px;
+    margin: 0 auto;
+    background-color: #f8f7fc;
+    border-radius: 10px;
+    margin-bottom: 100px;
+  }
+  
+  .carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .carousel-slide {
+    display: flex;
+    min-width: 100%;
+    height: 500px;
+  }
+  
+  .text-content {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .text-content .subtitle {
+    color: #ff5678;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .text-content .title {
+    font-size: 56px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .text-content .description {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .text-content .shop-now {
+    width: 100px;
+
+    background-color: #ff5678;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    /* cursor: pointer; */
+  }
+  
+  .image-content {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 10px 10px 0;
+  }
+  
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1000;
+    width: 100px;
+  }
+  
+  .carousel-btn.prev {
+    left: 10px;
+  }
+  
+  .carousel-btn.next {
+    right: 10px;
+  }
+  
+  .carousel-indicators {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+  }
+  
+  .indicator {
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background: gray;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .indicator.active {
+    background: #ff5678;
+  }
+  
+  .discount-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #00c0ff;
+    color: white;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 50px;
+  }
+  

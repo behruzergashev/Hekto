@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhoneAlt, faUser, faHeart, faShoppingCart, faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -9,18 +9,18 @@ import Blog from './components/Blog';
 import Shop from './components/Shop';
 import Contact from './components/Contact';
 import Login from './components/Login';
-import Shoping from './components/Shoping'
-
+import Shoping from './components/Shoping';
 import './App.css';
 
 const App = () => {
+  const [cart, setCart] = useState([]); 
+
   return (
     <Router>
       <div>
         <nav className="pushtinavbar">
           <div className="pushtiora">
             <div className="pushtidiv2">
-     
               <FontAwesomeIcon icon={faEnvelope} className="icon-style" />
               <p>mhhasanul@gmail.com</p>
             </div>
@@ -40,11 +40,12 @@ const App = () => {
                 <FontAwesomeIcon icon={faHeart} className="icon-style-small" />
               </p>
             </div>
-            <Link to="/Shoping" className='Shoping'>
-            <FontAwesomeIcon icon={faShoppingCart} className="icon-style" /></Link>
-       
+            <Link to="/shoping" className='Shoping'>
+              <FontAwesomeIcon icon={faShoppingCart} className="icon-style" />
+            </Link>
           </div>
         </nav>
+
         <nav className="main-navbar">
           <div className="main-navbar-container">
             <h1 className="logo">Hekto</h1>
@@ -52,7 +53,7 @@ const App = () => {
               <li><Link to="/">Home</Link></li>
               <li><Link to="/pages">Pages</Link></li>
               <li><Link to="/products">Products</Link></li>
-              <li><Link to="/blog">Blog</Link></li>
+              <li><Link to="/blog">About us</Link></li>
               <li><Link to="/shop">Shop</Link></li>
               <li><Link to="/contact">Contact</Link></li>
             </ul>
@@ -64,16 +65,17 @@ const App = () => {
             </div>
           </div>
         </nav>
+
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/pages" element={<Pages />} />
             <Route path="/products" element={<Products />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/shop" element={<Shop />} />
+            <Route path="/shop" element={<Shop setCart={setCart} />} /> 
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/shoping" element={<Shoping />} />
+            <Route path="/shoping" element={<Shoping cart={cart} />} />
           </Routes>
         </main>
       </div>

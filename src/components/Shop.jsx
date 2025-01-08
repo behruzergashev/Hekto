@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faSearch, faHeart } from '@fortawesome/free-solid-svg-icons';
 import "./ShopGrid.css";
-import "../Footer"
-
+import Footer from "../Footer";
 import Nom from "../assets/1.png";
 import Nom1 from "../assets/2.png";
 import Nom2 from "../assets/3.png";
@@ -16,7 +15,6 @@ import Nom7 from "../assets/8.png";
 import Nom8 from "../assets/9.png";
 import Nom9 from "../assets/11.png";
 import Nom10 from "../assets/4.png";
-import Footer from "../Footer";
 
 const products = [
   { id: 1, name: "Vel elit euismod", price: "$26.00", oldPrice: "$42.00", image: Nom },
@@ -30,21 +28,20 @@ const products = [
   { id: 9, name: "Vel elit euismod", price: "$26.00", oldPrice: "$42.00", image: Nom8 },
   { id: 10, name: "Ultricies condimentum imperdiet", price: "$26.00", oldPrice: "$42.00", image: Nom9 },
   { id: 11, name: "Vitae suspendisse sed", price: "$26.00", oldPrice: "$42.00", image: Nom10 },
-  { id: 12, name: "Sed at fermentum", price: "$26.00", oldPrice: "$42.00", image: Nom3 },
 ];
 
-const ProductCard = ({ product }) => (
+const ProductCard = ({ product, addToCart }) => (
   <div className="product-card">
     <div className="rasmuchun">
       <img src={product.image} alt={product.name} />
       <div className="middle">
-        <div className="text">
+        <div className="text" onClick={() => addToCart(product)}>
           <FontAwesomeIcon icon={faShoppingCart} className="icon-style" />
         </div>
-        <div className="text">
+        <div className="text2">
           <FontAwesomeIcon icon={faSearch} />
         </div>
-        <div className="text">
+        <div className="text3">
           <FontAwesomeIcon icon={faHeart} className="icon-style-small" />
         </div>
       </div>
@@ -62,10 +59,15 @@ const ProductCard = ({ product }) => (
   </div>
 );
 
-const ShopGrid = () => {
+const ShopGrid = ({ setCart }) => {
   const [searchId, setSearchId] = useState("");
   const [searchName, setSearchName] = useState("");
   const [sortOption, setSortOption] = useState("bestMatch");
+
+  // Add product to cart
+  const addToCart = (product) => {
+    setCart((prevCart) => [...prevCart, product]); // Add the product to the cart state
+  };
 
   const filteredProducts = products.filter((product) => {
     const matchesId = searchId ? product.id.toString() === searchId : true;
@@ -78,12 +80,12 @@ const ShopGrid = () => {
     const priceB = parseFloat(b.price.replace('$', ''));
 
     if (sortOption === "priceLowToHigh") {
-      return priceA - priceB; 
+      return priceA - priceB;
     } else if (sortOption === "priceHighToLow") {
       return priceB - priceA;
     }
 
-    return 0; 
+    return 0;
   });
 
   return (
@@ -144,11 +146,14 @@ const ShopGrid = () => {
 
       <div className="grid-container">
         {sortedProducts.length > 0 ? (
-          sortedProducts.map((product) => <ProductCard key={product.id} product={product} />)
+          sortedProducts.map((product) => (
+            <ProductCard key={product.id} product={product} addToCart={addToCart} />
+          ))
         ) : (
           <p>No products found</p>
         )}
       </div>
+
       <Footer />
     </div>
   );

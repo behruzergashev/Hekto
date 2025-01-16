@@ -66,14 +66,14 @@ const Contact = () => {
             <div className="kokqizil">
               <div className="kok">
                 <div className="kokdiv"></div>
-                <div>
+                <div className='plar'>
                   <p>Tel: 877-67-88-99</p>
                   <p>E-Mail: shop@store.com</p>
                 </div>
               </div>
               <div className="qizil">
                 <div className="qizildiv"></div>
-                <div>
+                <div className='plar'>
                   <p>Support Forum</p>
                   <p>For over 24hr</p>
                 </div>
@@ -82,17 +82,18 @@ const Contact = () => {
             <div className="sariqyashil">
               <div className="sariq">
                 <div className="sariqdiv"></div>
-                <div>
+                <div className='plar'>
                   <p>20 Margaret st, London</p>
                   <p>Great Britain, 3NM98-LK</p>
                 </div>
               </div>
               <div className="yashil">
                 <div className="yashildiv"></div>
-                <div>
+                <div className='plar'>
                   <p>Free standard shipping</p>
                   <p>on all orders.</p>
                 </div>
+              
               </div>
             </div>
           </div>

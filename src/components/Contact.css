@@ -107,6 +107,7 @@ line-height:30px;
     padding-top: 40px;
 
 
+
   }
   .mainright h1{
     text-align: left;
@@ -264,9 +265,26 @@ line-height:30px;
   .btn-send:hover {
     background-color: #e03570;
   }
-  
+  .mainright img{
+    width: 500px;
 
-  .mainright img {
-   
   }
+
+
+  @media only screen and (max-width: 1100px) {
+    .mainright img{
+      width: 400px;
+      margin-top: 50px;
+  
+    }
+    .plar{
+      font-size: 12px;
+    }
+    .mainleft p{
+      margin-top: 20px;
+    }
+
+
+
+        }
   

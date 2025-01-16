@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faSearch, faHeart } from '@fortawesome/free-solid-svg-icons';
@@ -30,10 +30,10 @@ const products = [
   { id: 11, name: "Vitae suspendisse sed", price: "$26.00", oldPrice: "$42.00", image: Nom10 },
 ];
 
-const ProductCard = ({ product, addToCart }) => (
+const ProductCard = ({ product, addToCart, toggleLike, isLiked }) => (
   <div className="product-card">
     <div className="rasmuchun">
-      <img src={product.image} alt={product.name} />
+      <img src={product.image || "/placeholder.svg"} alt={product.name} />
       <div className="middle">
         <div className="text" onClick={() => addToCart(product)}>
           <FontAwesomeIcon icon={faShoppingCart} className="icon-style" />
@@ -41,8 +41,11 @@ const ProductCard = ({ product, addToCart }) => (
         <div className="text2">
           <FontAwesomeIcon icon={faSearch} />
         </div>
-        <div className="text3">
-          <FontAwesomeIcon icon={faHeart} className="icon-style-small" />
+        <div className="text3" onClick={() => toggleLike(product)}>
+          <FontAwesomeIcon 
+            icon={faHeart} 
+            className={`icon-style-small ${isLiked ? 'liked' : ''}`} 
+          />
         </div>
       </div>
     </div>
@@ -63,10 +66,30 @@ const ShopGrid = ({ setCart }) => {
   const [searchId, setSearchId] = useState("");
   const [searchName, setSearchName] = useState("");
   const [sortOption, setSortOption] = useState("bestMatch");
+  const [likedProducts, setLikedProducts] = useState([]);
 
-  // Add product to cart
+  useEffect(() => {
+    // This effect will run whenever likedProducts changes
+    // You can send the likedProducts to another component or perform any other action here
+    console.log("Liked products updated:", likedProducts);
+    // For example, you could use a custom event to send the data:
+    const event = new CustomEvent('likedProductsUpdated', { detail: likedProducts });
+    window.dispatchEvent(event);
+  }, [likedProducts]);
+
   const addToCart = (product) => {
-    setCart((prevCart) => [...prevCart, product]); // Add the product to the cart state
+    setCart((prevCart) => [...prevCart, product]); 
+  };
+
+  const toggleLike = (product) => {
+    setLikedProducts(prevLiked => {
+      const isAlreadyLiked = prevLiked.some(p => p.id === product.id);
+      if (isAlreadyLiked) {
+        return prevLiked.filter(p => p.id !== product.id);
+      } else {
+        return [...prevLiked, product];
+      }
+    });
   };
 
   const filteredProducts = products.filter((product) => {
@@ -105,7 +128,7 @@ const ShopGrid = ({ setCart }) => {
         </div>
       </nav>
 
-      <div className="search-bar">
+      <div className="search-bar2">
         <div className="searchp">
           <h1>Ecommerce Acceories & Fashion item</h1>
           <p>About 9,620 results (0.62 seconds)</p>
@@ -144,10 +167,16 @@ const ShopGrid = ({ setCart }) => {
         </div>
       </div>
 
-      <div className="grid-container">
+      <div className="grid-container1">
         {sortedProducts.length > 0 ? (
           sortedProducts.map((product) => (
-            <ProductCard key={product.id} product={product} addToCart={addToCart} />
+            <ProductCard 
+              key={product.id} 
+              product={product} 
+              addToCart={addToCart} 
+              toggleLike={toggleLike}
+              isLiked={likedProducts.some(p => p.id === product.id)}
+            />
           ))
         ) : (
           <p>No products found</p>
@@ -160,3 +189,4 @@ const ShopGrid = ({ setCart }) => {
 };
 
 export default ShopGrid;
+

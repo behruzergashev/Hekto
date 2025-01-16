@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Carsimg from './assets/caruselpng.png'
 import "./Carusel.css";
-
-
+import fanar from './assets/fonar.png'
 
 
 
@@ -30,6 +29,7 @@ const Carousel = ({ slides }) => {
       >
         {slides.map((slide, index) => (
           <div className="carousel-slide" key={index}>
+            <div className="fanar"><img src={fanar} alt="" className="fanar"/></div>
             <div className="text-content">
               <p className="subtitle">{slide.subtitle}</p>
               <h1 className="title">{slide.title}</h1>
@@ -39,7 +39,7 @@ const Carousel = ({ slides }) => {
             <div
               className="image-content"
                
-            ><img src={Carsimg} alt="" /></div>
+            ><img src={Carsimg} alt="" className="caruselimg" /></div>
           </div>
         ))}
       </div>
@@ -54,7 +54,7 @@ const Carousel = ({ slides }) => {
           ></span>
         ))}
       </div>
-      <div className="discount-badge">50% off</div>
+
     </div>
   );
 };

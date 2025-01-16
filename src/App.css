@@ -51,6 +51,7 @@
   justify-content: space-between;
   padding: 0 300px;
   border-bottom: 1px solid #ddd;
+
 }
 
 .main-navbar-container {
@@ -97,7 +98,7 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  margin-top: 100px;
+
 }
 
 .search-bar input {
@@ -121,4 +122,148 @@
   cursor: pointer;
   margin-left: 4px;
   margin-top: 1px;
+}
+.barsicon {
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: none;
+}
+
+.blokcha {
+  display: none;
+  position: absolute;
+  top: 100px;
+  right: 0;
+  width: 400px;
+  height: 400px;
+  background: #ff0000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.blokcha-active {
+  display: block;
+}
+
+.blokcha .mainblok ul {
+  list-style: none;
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+}
+
+.blokcha .mainblok ul li {
+  margin: 0.5rem 0;
+}
+
+.blokcha .mainblok ul li a {
+  text-decoration: none;
+  color: #000;
+}
+@media (max-width: 1380px) {
+.logo {
+  font-size: 24px;
+  color: black;
+  font-weight: bold;
+  margin-right: 20px;
+}
+.search-bar{
+  margin-left: 20px;
+}
+}
+@media only screen and (max-width: 1300px){
+
+}
+@media (max-width: 1100px) {
+  .logo {
+    font-size: 24px;
+    color: black;
+    font-weight: bold;
+   margin-left: -100px;
+  }
+}
+@media only screen and (max-width: 1000px){
+  .logo {
+    font-size: 24px;
+    color: black;
+    font-weight: bold;
+   margin-left: -150px;
+  }
+  .footer{
+    width: 100%;
+    height: auto;
+  }
+.foodiv{
+  width: 100%;
+  height: 700px;
+  background-color: red;
+}
+.foomain{
+  width: 90%;
+  height: 600px;
+  margin: 0 auto;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  background-color: yellow;
+}
+.fooleft{
+  width: 100%;
+
+}
+
+.fooright{
+  width:600px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 40px;
+  background-color: blue;
+}
+.fooleft h2{
+  text-align: center;
+}
+.btncha_1{
+  width: 200px;
+  margin-left: 50px;
+}
+.fooora{
+  margin: 0;
+  padding: 0;
+}
+.fooleft p{
+  text-align: center;
+  margin-left: 120px;
+}
+}
+
+@media only screen and (max-width: 950px){
+  .logo {
+    font-size: 24px;
+    color: black;
+    font-weight: bold;
+   margin-left: -220px;
+  }
+  
+
+  .main-navbar-links, .search-bar{
+    display: none;
+  }
+
+  .barsicon{
+    display: block;
+  }
+  .main-navbar {
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 300px;
+    border-bottom: 1px solid #ddd;
+ 
+  }
+
 }

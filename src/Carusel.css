@@ -163,6 +163,27 @@ margin-left: 30px;
   .image-content {
       height: 250px;
   }
+  .text-content .title {
+    width: 300px;
+    font-size: 26px;
+    margin-left: 38%;
+  }
+  .text-content .subtitle {
+    margin-left: 38%;
+  }
+  .text-content .description{
+    margin-left: 38%;
+  }
+  .text-content .shop-now{
+    margin-left: 38%;
+  }
+  .caruselimg{
+    margin-top: 250px;
+  }
+  .fanar{
+    width: 150px;
+    height: 180px;
+  }
 }
 
 /* 768px va undan kichik ekranlar uchun */

@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faSearch, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { AiOutlineBars } from 'react-icons/ai';
-import { CgMenuGridO } from 'react-icons/cg';
-import "./ShopGrid.css";
+import "./shoop2.css";
 import Footer from "../Footer";
 import Nom from "../assets/1.png";
 import Nom1 from "../assets/2.png";
@@ -17,7 +15,6 @@ import Nom7 from "../assets/8.png";
 import Nom8 from "../assets/9.png";
 import Nom9 from "../assets/11.png";
 import Nom10 from "../assets/4.png";
-
 
 const products = [
   { id: 1, name: "Vel elit euismod", price: "$26.00", oldPrice: "$42.00", image: Nom },
@@ -34,33 +31,33 @@ const products = [
 ];
 
 const ProductCard = ({ product, addToCart, toggleLike, isLiked }) => (
-  <div className="product-card">
-    <div className="rasmuchun">
+  <div className="product-item">
+    <div className="image-container">
       <img src={product.image || "/placeholder.svg"} alt={product.name} />
-      <div className="middle">
-        <div className="text" onClick={() => addToCart(product)}>
-          <FontAwesomeIcon icon={faShoppingCart} className="icon-style" />
+      <div className="hover-options">
+        <div className="cart-icon" onClick={() => addToCart(product)}>
+          <FontAwesomeIcon icon={faShoppingCart} className="icon" />
         </div>
-        <div className="text2">
+        <div className="search-icon">
           <FontAwesomeIcon icon={faSearch} />
         </div>
-        <div className="text3" onClick={() => toggleLike(product)}>
+        <div className="like-icon" onClick={() => toggleLike(product)}>
           <FontAwesomeIcon 
             icon={faHeart} 
-            className={`icon-style-small ${isLiked ? 'liked' : ''}`} 
+            className={`icon-small ${isLiked ? 'liked' : ''}`} 
           />
         </div>
       </div>
     </div>
     <h3>{product.name}</h3>
-    <div className="displayflex">
-      <div className="flex1"></div>
-      <div className="flex2"></div>
-      <div className="flex3"></div>
+    <div className="color-options">
+      <div className="color-option yellow"></div>
+      <div className="color-option red"></div>
+      <div className="color-option blue"></div>
     </div>
-    <p className="price">
-      <span className="current-price">{product.price}</span>
-      <span className="old-price">{product.oldPrice}</span>
+    <p className="pricing">
+      <span className="current">{product.price}</span>
+      <span className="old">{product.oldPrice}</span>
     </p>
   </div>
 );
@@ -72,9 +69,7 @@ const ShopGrid = ({ setCart }) => {
   const [likedProducts, setLikedProducts] = useState([]);
 
   useEffect(() => {
-
     console.log("Liked products updated:", likedProducts);
-
     const event = new CustomEvent('likedProductsUpdated', { detail: likedProducts });
     window.dispatchEvent(event);
   }, [likedProducts]);
@@ -114,11 +109,11 @@ const ShopGrid = ({ setCart }) => {
   });
 
   return (
-    <div className="shop-grid">
+    <div className="shop-container">
       <nav>
-        <div className="navbarheader">
-          <div className="headermain">
-            <div className="mainleft">
+        <div className="header-section">
+          <div className="header-content">
+            <div className="content-left">
               <h1>Shop Grid Default</h1>
               <ul>
                 <li><Link to="/">Home</Link></li>
@@ -130,12 +125,12 @@ const ShopGrid = ({ setCart }) => {
         </div>
       </nav>
 
-      <div className="search-bar2">
-        <div className="searchp">
-          <h1>Ecommerce Acceories & Fashion item</h1>
+      <div className="filter-bar">
+        <div className="results-info">
+          <h1>Ecommerce Accessories & Fashion item</h1>
           <p>About 9,620 results (0.62 seconds)</p>
         </div>
-        <div className="search-flex">
+        <div className="filter-controls">
           <div>
             <label htmlFor="perPage">Per Page:</label>
             <input
@@ -158,15 +153,7 @@ const ShopGrid = ({ setCart }) => {
             </select>
           </div>
           <div>
-     
-                          <li><Link to="/shop.">
-                          <AiOutlineBars /></Link></li>
-                          <li><Link to="/shop"></Link>     <CgMenuGridO /></li>
-
-
-          </div>
-          <div>
-         
+            <label htmlFor="view">View:</label>
             <input
               id="view"
               type="text"
@@ -177,7 +164,7 @@ const ShopGrid = ({ setCart }) => {
         </div>
       </div>
 
-      <div className="grid-container1">
+      <div className="product-grid">
         {sortedProducts.length > 0 ? (
           sortedProducts.map((product) => (
             <ProductCard 
@@ -199,4 +186,3 @@ const ShopGrid = ({ setCart }) => {
 };
 
 export default ShopGrid;
-

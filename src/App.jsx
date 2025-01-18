@@ -21,6 +21,8 @@ import Login from './components/Login';
 import Shoping from './components/Shoping';
 import './App.css';
 import Wishis from './components/wishis'
+import Barsgrid  from './components/shoop2'
+
 
 
 const App = () => {
@@ -149,6 +151,7 @@ const App = () => {
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/login" element={<Wishis />} />
+            <Route path="/shop." element={<Barsgrid />} />
 
             <Route path="/shoping" element={<Shoping cart={cart} />} />
           </Routes>

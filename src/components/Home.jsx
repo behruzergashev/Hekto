@@ -35,20 +35,29 @@ const Home = () => {
         <h1>What Shopex Offer!</h1>
         <div className="cardlarmain">
           <div className="cardbir">
-            <img src={moshin} alt="" />
+         <div className='ortalatgich'>   <img src={moshin} alt="" /></div>
             <h1>Free Delivery</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.</p>
           </div>
           <div className="cardbir">
+            <div className='ortalatgich'>
+
             <img src={cashbak} alt="" />
+            </div>
             <h1>100% Cash Back</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.</p>
           </div> <div className="cardbir">
+            <div className='ortalatgich'>
+
             <img src={tanga} alt="" />
+            </div>
             <h1>Quality Product</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.</p>
           </div> <div className="cardbir">
+            <div className='ortalatgich'>
+
             <img src={group} alt="" />
+            </div>
             <h1>24/7 Support</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa purus gravida.</p>
           </div>

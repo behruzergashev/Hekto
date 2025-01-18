@@ -416,7 +416,94 @@ margin-left: 200px;
 
 
 
+@media (max-width: 1224px){
+  .carduzun{
+  }
+.uchcard{
+  width: 80;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 50px 70px;
 
+  
+}
+.carduzun1{
+  display: none;
+}
+.discort{
+  margin-top: 300px;
+}
+.stolcarlar{
+  width: 100%;
+
+}
+.discortmain{
+  height: 1200px;
+  display: grid;
+}
+.discorleft{
+  width: 100%;
+}
+.discortmain h1{
+  text-align: center;
+  width: 500px;
+  margin: 0 auto;
+}
+.discopp{
+  width: 600px;
+}
+.discorright{
+  width: 100%;
+}
+.csssssss{
+  margin-top: 600px;
+}
+}
+@media (max-width: 1158px){
+  .uchcard{
+    width: 80;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 50px 50px;
+  
+    
+  }
+}
+@media (max-width: 1068px){
+  .uchcard{
+    width: 80;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 50px 30px;
+  
+    
+  }
+}
+@media (max-width: 1028px){
+  .uchcard{
+    width: 80;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 50px 0px;
+  
+    
+  }
+  .cardlarmain{
+    width: 80%;
+    height: 800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .header9{
+    margin-top: 100px;
+  }
+ .main9left img{
+  width: 400px;
+ }
+.mainright9 h1{
+font-size: 30px;
+}
+}
   @media (min-width: 768px) {
     .grid {
       grid-template-columns: 1fr 1fr;

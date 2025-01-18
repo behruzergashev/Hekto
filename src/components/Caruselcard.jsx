@@ -3,7 +3,7 @@ import stolcard from '../assets/stolcard.png'
 import stolcard1 from '../assets/stolcard2.png'
 import stolcard3 from '../assets/stolcard3.png'
 import stolcard4 from '../assets/stolcard4.png'
-
+import'./style.css'
 const productsData = {
   "featuredProducts": [
     { "id": 1,
@@ -35,64 +35,45 @@ function FeaturedProducts() {
   }
 
   return (
-    <div style={{width: '100%', maxWidth: '1152px', margin: '0 auto', padding: '32px 16px'}}>
-      <h2 style={{fontSize: '1.875rem', fontWeight: 'bold', textAlign: 'center', marginBottom: '32px'}}>Featured Products</h2>
-      
-      <div style={{marginBottom: '32px'}}>
-        <div style={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px'}}>
-          {pages[currentPage].map((product) => (
-            <div key={product.id} style={{border: '1px solid #e5e7eb', borderRadius: '0.5rem', overflow: 'hidden', transition: 'box-shadow 0.3s', ':hover': {boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'}}}>
-              <div style={{}}>
-                <div style={{aspectRatio: '1 / 1', position: 'relative', marginBottom: '16px', backgroundColor: '#f3f4f6', borderRadius: '0.375rem', overflow: 'hidden'}}>
-                <img 
-                    src={product.Image} 
-                    alt={product.name}
-                    style={{
-                      width: '80%',
-                      height: '80%',
-                      marginTop: '10%',
-                      marginLeft:'10%',
-                      objectFit: 'cover',
-                      position: 'absolute',
-                      
-                      top: 0,
-                      left: 0
-                    }}
-                  />
-                  <div style={{position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#9ca3af'}}>
-                    Image
-                  </div>
-                </div>
-                <div style={{textAlign: 'center'}}>
-                  <h3 style={{fontSize: '1.125rem', fontWeight: '600', color: '#ec4899', marginBottom: '0.25rem'}}>{product.name}</h3>
-                  <p style={{fontSize: '0.875rem', color: '#4b5563', marginBottom: '0.5rem'}}>Code - {product.code}</p>
-                  <p style={{fontSize: '1.25rem', fontWeight: 'bold', color: '#1f2937'}}>${product.price}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+<div className="container11">
+  <h2 className="section-title11">Featured Products</h2>
 
-      <div style={{display: 'flex', justifyContent: 'center', }}>
-        {pages.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => handlePageChange(index)}
-            style={{
-              width: '50px',
-              height: '7px',
-              
-            //   borderRadius: '9999px',
-              backgroundColor: currentPage === index ? '#ec4899' : '#d1d5db',
-              border: 'none',
-              cursor: 'pointer'
-            }}
-            aria-label={`Go to page ${index + 1}`}
-          />
-        ))}
-      </div>
+<div className="pro-main">
+<div className="product-list11">
+    <div className="product-grid11">
+      {pages[currentPage].map((product) => (
+        <div className="product-card11" key={product.id}>
+          <div className="product-image11-wrapper">
+            <img 
+              src={product.Image} 
+              alt={product.name} 
+              className="product-image11" 
+            />
+          
+          </div>
+          <div className="product-info11">
+            <h3 className="product-name11">{product.name}</h3>
+            <p className="product-code11">Code - {product.code}</p>
+            <p className="product-price11">${product.price}</p>
+          </div>
+        </div>
+      ))}
     </div>
+  </div>
+</div>
+
+  <div className="pagination11">
+    {pages.map((_, index) => (
+      <button
+        key={index}
+        onClick={() => handlePageChange(index)}
+        className={`pagination-dot11 ${currentPage === index ? 'active' : ''}`}
+        aria-label={`Go to page ${index + 1}`}
+      />
+    ))}
+  </div>
+</div>
+
   )
 }
 

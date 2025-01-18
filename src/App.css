@@ -267,3 +267,23 @@
   }
 
 }
+@media only screen and (max-width: 1280px){
+  .stolcarlar{
+height: 1000px;
+  }
+.discort{
+  margin-top: 300px;
+}
+.tortcatt{
+  display: grid;grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+}
+.stolcard1{
+  width: 400px;
+  margin-left: 80px;
+}
+.tepa{
+  width: 100%;
+}
+}

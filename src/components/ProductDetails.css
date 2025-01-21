@@ -1,0 +1,107 @@
+.product-details {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    margin-top: 100px;
+  }
+  
+  .tabs {
+    display: flex;
+    gap: 40px;
+    border-bottom: 1px solid #e1e1e4;
+    margin-bottom: 30px;
+  }
+  .h1center{
+    text-align: center;
+  }
+  .pcenter{
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    line-height: 30px;
+    margin-top: 30px;
+  }
+  .tab-button {
+    background: none;
+    border: none;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #151875;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .tab-button.active {
+    color: #151875;
+    font-weight: 600;
+  }
+  
+  .tab-button.active::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #151875;
+  }
+  
+  .tab-content {
+    color: #151875;
+  }
+  
+  .tab-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  .tab-text {
+    color: #72718f;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+  
+  .more-details h4 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .detail-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+  }
+  
+  .arrow-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #151875;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.3s ease;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .arrow-button.expanded {
+    transform: rotate(90deg);
+  }
+  
+  .detail-item p {
+    color: #72718f;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  .detail-item p.expanded {
+    max-height: 200px;
+  }
+  
+  

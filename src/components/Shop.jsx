@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faSearch, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { AiOutlineBars } from 'react-icons/ai';
-import { CgMenuGridO } from 'react-icons/cg';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart, faSearch, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { AiOutlineBars } from "react-icons/ai";
+import { CgMenuGridO } from "react-icons/cg";
 import "./ShopGrid.css";
 import Footer from "../Footer";
 import Nom from "../assets/1.png";
@@ -17,7 +17,6 @@ import Nom7 from "../assets/8.png";
 import Nom8 from "../assets/9.png";
 import Nom9 from "../assets/11.png";
 import Nom10 from "../assets/4.png";
-
 
 const products = [
   { id: 1, name: "Vel elit euismod", price: "$26.00", oldPrice: "$42.00", image: Nom },
@@ -33,7 +32,63 @@ const products = [
   { id: 11, name: "Vitae suspendisse sed", price: "$26.00", oldPrice: "$42.00", image: Nom10 },
 ];
 
-const ProductCard = ({ product, addToCart, toggleLike, isLiked }) => (
+
+const ProductModal = ({ product, onClose }) => (
+  <>
+    { }
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        background: "rgba(0, 0, 0, 0.5)",
+        zIndex: 999,
+      }}
+      onClick={onClose}
+    ></div>
+
+
+    <div
+      style={{
+        position: "fixed",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        background: "#fff",
+        padding: "20px",
+        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+        zIndex: 1000,
+        borderRadius: "8px",
+        minWidth: "300px",
+        textAlign: "center",
+      }}
+    >
+      <h2>{product.name}</h2>
+      <img src={product.image || "/placeholder.svg"} alt={product.name} width="200" />
+      <p>Price: {product.price}</p>
+      <p>Old Price: {product.oldPrice}</p>
+      <button
+        onClick={onClose}
+        style={{
+          marginTop: "10px",
+          padding: "8px 16px",
+          background: "#007bff",
+          color: "#fff",
+          border: "none",
+          borderRadius: "4px",
+          cursor: "pointer",
+        }}
+      >
+        Yopish
+      </button>
+    </div>
+  </>
+);
+
+
+const ProductCard = ({ product, addToCart, toggleLike, isLiked, onView }) => (
   <div className="product-card">
     <div className="rasmuchun">
       <img src={product.image || "/placeholder.svg"} alt={product.name} />
@@ -41,13 +96,13 @@ const ProductCard = ({ product, addToCart, toggleLike, isLiked }) => (
         <div className="text" onClick={() => addToCart(product)}>
           <FontAwesomeIcon icon={faShoppingCart} className="icon-style" />
         </div>
-        <div className="text2">
+        <div className="text2" onClick={() => onView(product)}>
           <FontAwesomeIcon icon={faSearch} />
         </div>
         <div className="text3" onClick={() => toggleLike(product)}>
-          <FontAwesomeIcon 
-            icon={faHeart} 
-            className={`icon-style-small ${isLiked ? 'liked' : ''}`} 
+          <FontAwesomeIcon
+            icon={faHeart}
+            className={`icon-style-small ${isLiked ? "liked" : ""}`}
           />
         </div>
       </div>
@@ -70,28 +125,33 @@ const ShopGrid = ({ setCart }) => {
   const [searchName, setSearchName] = useState("");
   const [sortOption, setSortOption] = useState("bestMatch");
   const [likedProducts, setLikedProducts] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
-
     console.log("Liked products updated:", likedProducts);
-
-    const event = new CustomEvent('likedProductsUpdated', { detail: likedProducts });
+    const event = new CustomEvent("likedProductsUpdated", { detail: likedProducts });
     window.dispatchEvent(event);
   }, [likedProducts]);
 
   const addToCart = (product) => {
-    setCart((prevCart) => [...prevCart, product]); 
+    setCart((prevCart) => [...prevCart, product]);
   };
 
   const toggleLike = (product) => {
-    setLikedProducts(prevLiked => {
-      const isAlreadyLiked = prevLiked.some(p => p.id === product.id);
-      if (isAlreadyLiked) {
-        return prevLiked.filter(p => p.id !== product.id);
-      } else {
-        return [...prevLiked, product];
-      }
+    setLikedProducts((prevLiked) => {
+      const isAlreadyLiked = prevLiked.some((p) => p.id === product.id);
+      return isAlreadyLiked
+        ? prevLiked.filter((p) => p.id !== product.id)
+        : [...prevLiked, product];
     });
+  };
+
+  const handleView = (product) => {
+    setSelectedProduct(product);
+  };
+
+  const closeModal = () => {
+    setSelectedProduct(null);
   };
 
   const filteredProducts = products.filter((product) => {
@@ -101,15 +161,10 @@ const ShopGrid = ({ setCart }) => {
   });
 
   const sortedProducts = filteredProducts.sort((a, b) => {
-    const priceA = parseFloat(a.price.replace('$', ''));
-    const priceB = parseFloat(b.price.replace('$', ''));
-
-    if (sortOption === "priceLowToHigh") {
-      return priceA - priceB;
-    } else if (sortOption === "priceHighToLow") {
-      return priceB - priceA;
-    }
-
+    const priceA = parseFloat(a.price.replace("$", ""));
+    const priceB = parseFloat(b.price.replace("$", ""));
+    if (sortOption === "priceLowToHigh") return priceA - priceB;
+    if (sortOption === "priceHighToLow") return priceB - priceA;
     return 0;
   });
 
@@ -130,12 +185,12 @@ const ShopGrid = ({ setCart }) => {
         </div>
       </nav>
 
-      <div className="search-bar2">
-        <div className="searchp">
-          <h1>Ecommerce Acceories & Fashion item</h1>
+      <div className="filter-bar">
+        <div className="results-info">
+          <h1>Ecommerce Accessories & Fashion item</h1>
           <p>About 9,620 results (0.62 seconds)</p>
         </div>
-        <div className="search-flex">
+        <div className="filter-controls">
           <div>
             <label htmlFor="perPage">Per Page:</label>
             <input
@@ -145,10 +200,14 @@ const ShopGrid = ({ setCart }) => {
               onChange={(e) => setSearchId(e.target.value)}
             />
           </div>
+          <div className="qqqndqndnq">
+            <li><Link to="/shop."><AiOutlineBars /></Link></li>
+            <li><Link to="/shop"><CgMenuGridO /></Link></li>
+          </div>
           <div>
             <label htmlFor="sortBy">Sort By:</label>
-            <select 
-              id="sortBy" 
+            <select
+              id="sortBy"
               value={sortOption}
               onChange={(e) => setSortOption(e.target.value)}
             >
@@ -158,15 +217,7 @@ const ShopGrid = ({ setCart }) => {
             </select>
           </div>
           <div>
-     
-                          <li><Link to="/shop.">
-                          <AiOutlineBars /></Link></li>
-                          <li><Link to="/shop"></Link>     <CgMenuGridO /></li>
-
-
-          </div>
-          <div>
-         
+            <label htmlFor="view">View:</label>
             <input
               id="view"
               type="text"
@@ -177,15 +228,18 @@ const ShopGrid = ({ setCart }) => {
         </div>
       </div>
 
+
       <div className="grid-container1">
         {sortedProducts.length > 0 ? (
           sortedProducts.map((product) => (
-            <ProductCard 
-              key={product.id} 
-              product={product} 
-              addToCart={addToCart} 
+            <ProductCard
+              key={product.id}
+              product={product}
+              addToCart={addToCart}
               toggleLike={toggleLike}
-              isLiked={likedProducts.some(p => p.id === product.id)}
+              isLiked={likedProducts.some((p) => p.id === product.id)}
+            
+              onView={handleView}
             />
           ))
         ) : (
@@ -193,10 +247,13 @@ const ShopGrid = ({ setCart }) => {
         )}
       </div>
 
+      {selectedProduct && (
+        <ProductModal product={selectedProduct} onClose={closeModal} />
+      )}
+
       <Footer />
     </div>
   );
 };
 
 export default ShopGrid;
-

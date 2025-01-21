@@ -76,3 +76,47 @@ height: 128px;
 .icon-style-small2{
     font-size: 15px;
 }
+.navbarbek{
+    width: 100%;
+    height: 200px;
+    background: rgba(246, 245, 255, 1);
+
+}
+.navbaroy{
+    width: 75%;
+    margin: 0 auto;
+ height: 200px;
+ padding-top: 20px;
+}
+.divjcasca4 ul{
+display: flex;
+align-items: center;
+gap: 15px;
+margin-top: 20px;
+
+list-style: none;
+
+}
+.custom-link {
+    text-decoration: none;
+    color: inherit; 
+  }
+  
+  .custom-link:hover {
+    color: blueviolet; 
+  }
+  .custom-link1 {
+    text-decoration: none;
+    color: inherit; 
+    color:red;
+  }
+  
+  .custom-link1:hover {
+    color: blueviolet; 
+  }
+
+.divjcasca4 h1{
+font-size: 30px;
+}
+
+

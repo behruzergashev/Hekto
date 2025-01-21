@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faSearch, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { AiOutlineBars } from "react-icons/ai";
+import { CgMenuGridO } from "react-icons/cg";
 import "./shoop2.css";
 import Footer from "../Footer";
 import Nom from "../assets/1.png";
@@ -30,37 +32,47 @@ const products = [
   { id: 11, name: "Vitae suspendisse sed", price: "$26.00", oldPrice: "$42.00", image: Nom10 },
 ];
 
-const ProductCard = ({ product, addToCart, toggleLike, isLiked }) => (
+const ProductCard = ({ product, addToCart, toggleLike }) => (
   <div className="product-item">
+    <div className="productcardss">
+
     <div className="image-container">
       <img src={product.image || "/placeholder.svg"} alt={product.name} />
-      <div className="hover-options">
-        <div className="cart-icon" onClick={() => addToCart(product)}>
-          <FontAwesomeIcon icon={faShoppingCart} className="icon" />
+    </div>
+    <div className="product-info">
+      <h3>
+        {product.name}
+        <div className="color-dots">
+          <span className="color-dot"></span>
+          <span className="color-dot"></span>
+          <span className="color-dot"></span>
         </div>
-        <div className="search-icon">
+      </h3>
+      <div className="star-rating">★★★★★</div>
+      <p className="pricing">
+        <span className="current">{product.price}</span>
+        <span className="old">{product.oldPrice}</span>
+      </p>
+      <p className="product-description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.
+      </p>
+      <div className="action-buttons">
+        <button className="action-button1" onClick={() => addToCart(product)}>
+          <FontAwesomeIcon icon={faShoppingCart} />
+        </button>
+        <button className="action-button2" onClick={() => toggleLike(product)}>
+          <FontAwesomeIcon icon={faHeart} />
+        </button>
+        <button className="action-button3">
           <FontAwesomeIcon icon={faSearch} />
-        </div>
-        <div className="like-icon" onClick={() => toggleLike(product)}>
-          <FontAwesomeIcon 
-            icon={faHeart} 
-            className={`icon-small ${isLiked ? 'liked' : ''}`} 
-          />
-        </div>
+        </button>
       </div>
     </div>
-    <h3>{product.name}</h3>
-    <div className="color-options">
-      <div className="color-option yellow"></div>
-      <div className="color-option red"></div>
-      <div className="color-option blue"></div>
     </div>
-    <p className="pricing">
-      <span className="current">{product.price}</span>
-      <span className="old">{product.oldPrice}</span>
-    </p>
   </div>
-);
+)
+
+
 
 const ShopGrid = ({ setCart }) => {
   const [searchId, setSearchId] = useState("");
@@ -69,7 +81,6 @@ const ShopGrid = ({ setCart }) => {
   const [likedProducts, setLikedProducts] = useState([]);
 
   useEffect(() => {
-    console.log("Liked products updated:", likedProducts);
     const event = new CustomEvent('likedProductsUpdated', { detail: likedProducts });
     window.dispatchEvent(event);
   }, [likedProducts]);
@@ -79,13 +90,9 @@ const ShopGrid = ({ setCart }) => {
   };
 
   const toggleLike = (product) => {
-    setLikedProducts(prevLiked => {
-      const isAlreadyLiked = prevLiked.some(p => p.id === product.id);
-      if (isAlreadyLiked) {
-        return prevLiked.filter(p => p.id !== product.id);
-      } else {
-        return [...prevLiked, product];
-      }
+    setLikedProducts((prevLiked) => {
+      const isAlreadyLiked = prevLiked.some((p) => p.id === product.id);
+      return isAlreadyLiked ? prevLiked.filter((p) => p.id !== product.id) : [...prevLiked, product];
     });
   };
 
@@ -110,20 +117,20 @@ const ShopGrid = ({ setCart }) => {
 
   return (
     <div className="shop-container">
-      <nav>
-        <div className="header-section">
-          <div className="header-content">
-            <div className="content-left">
-              <h1>Shop Grid Default</h1>
-              <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/pages">Pages</Link></li>
-                <h4>Shop Grid Default</h4>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </nav>
+    <nav>
+         <div className="navbarheader">
+           <div className="headermain">
+             <div className="mainleft">
+               <h1>Shop Grid Default</h1>
+               <ul>
+                 <li><Link to="/">Home</Link></li>
+                 <li><Link to="/pages">Pages</Link></li>
+                 <h4>Shop Grid Default</h4>
+               </ul>
+             </div>
+           </div>
+         </div>
+       </nav>
 
       <div className="filter-bar">
         <div className="results-info">
@@ -140,6 +147,8 @@ const ShopGrid = ({ setCart }) => {
               onChange={(e) => setSearchId(e.target.value)}
             />
           </div>
+          <li><Link to="/shop."><AiOutlineBars /></Link></li>
+          <li><Link to="/shop"><CgMenuGridO /></Link></li>
           <div>
             <label htmlFor="sortBy">Sort By:</label>
             <select 

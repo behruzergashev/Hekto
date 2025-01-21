@@ -63,7 +63,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="header9">
+      {/* <div className="header9">
         <div className="header9main">
           <div className="main9left">
 <img src={headerstol} alt="" />
@@ -97,7 +97,8 @@ const Home = () => {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
+      
       <div className="stolcarlar">
         <h1></h1>
         <div className="stolmain">

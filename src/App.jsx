@@ -19,18 +19,17 @@ import Shop from './components/Shop';
 import Contact from './components/Contact';
 import Login from './components/Login';
 import Shoping from './components/Shoping';
+import Wishis from './components/Wishis'; // To'g'ri import
+import Barsgrid from './components/shoop2';
 import './App.css';
-import Wishis from './components/wishis'
-import Barsgrid  from './components/shoop2'
-
-
 
 const App = () => {
   const [cart, setCart] = useState([]);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); 
+  const [likedProducts, setLikedProducts] = useState([]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen); 
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -52,16 +51,13 @@ const App = () => {
               <p>English</p>
               <p>USD</p>
               <Link to="/login" className="Login">
-                login
+                Login
               </Link>
               <FontAwesomeIcon icon={faUser} className="icon-style-small" />
-              <Link to="/Wishis" className="Wishis">
-              Wishlist
+              <Link to="/wishis" className="Wishis">
+                Wishlist
               </Link>
-     
-        
-                <FontAwesomeIcon icon={faHeart} className="icon-style-small" />
-            
+              <FontAwesomeIcon icon={faHeart} className="icon-style-small" />
             </div>
             <Link to="/shoping" className="Shoping">
               <FontAwesomeIcon icon={faShoppingCart} className="icon-style" />
@@ -99,9 +95,9 @@ const App = () => {
               </button>
             </div>
           </div>
-            <div className="bars" onClick={toggleMenu}>
-              <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} className="barsicon" />
-            </div>
+          <div className="bars" onClick={toggleMenu}>
+            <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} className="barsicon" />
+          </div>
         </nav>
 
         <nav className={`blokcha ${isMenuOpen ? 'blokcha-active' : ''}`}>
@@ -141,6 +137,7 @@ const App = () => {
             </ul>
           </div>
         </nav>
+
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -150,9 +147,8 @@ const App = () => {
             <Route path="/shop" element={<Shop setCart={setCart} />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/login" element={<Wishis />} />
+            <Route path="/wishis" element={<Wishis likedProducts={likedProducts} />} />
             <Route path="/shop." element={<Barsgrid />} />
-
             <Route path="/shoping" element={<Shoping cart={cart} />} />
           </Routes>
         </main>

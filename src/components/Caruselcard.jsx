@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import stolcard from '../assets/stolcard.png'
 import stolcard1 from '../assets/stolcard2.png'
 import stolcard3 from '../assets/stolcard3.png'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart, faSearch, faHeart } from "@fortawesome/free-solid-svg-icons";
 import stolcard4 from '../assets/stolcard4.png'
 import'./style.css'
 const productsData = {
@@ -42,21 +44,44 @@ function FeaturedProducts() {
 <div className="product-list11">
     <div className="product-grid11">
       {pages[currentPage].map((product) => (
-        <div className="product-card11" key={product.id}>
-          <div className="product-image11-wrapper">
-            <img 
-              src={product.Image} 
-              alt={product.name} 
-              className="product-image11" 
-            />
-          
-          </div>
-          <div className="product-info11">
-            <h3 className="product-name11">{product.name}</h3>
-            <p className="product-code11">Code - {product.code}</p>
-            <p className="product-price11">${product.price}</p>
-          </div>
-        </div>
+  <div className="product-card11" key={product.id}>
+  <div className="product-image11-wrapper">
+    <img 
+      src={product.Image} 
+      alt={product.name} 
+      className="product-image11" 
+    />
+    <div className="product-hover11">
+    <div className="product-hover11-text">
+        <FontAwesomeIcon icon={faShoppingCart} />
+      </div>
+      <div className="product-hover11-text12">
+        <FontAwesomeIcon icon={faHeart} />
+      </div>
+      <div className="product-hover11-text13">
+        <FontAwesomeIcon icon={faSearch} />
+      </div>
+    </div>
+  </div>
+  <div className="product-info11">
+    <h3 className="product-name11">{product.name}</h3>
+    <div className="hoverlar">
+      <div className="hover1">
+
+      </div>
+
+      <div className="hover2">
+
+      </div>
+      <div className="hover3">
+        
+      </div>
+    </div>
+    <p className="product-code11">Code - {product.code}</p>
+    <p className="product-price11">${product.price}</p>
+  </div>
+</div>
+
       ))}
     </div>
   </div>

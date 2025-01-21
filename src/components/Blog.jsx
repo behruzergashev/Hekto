@@ -9,7 +9,7 @@ import group from '../assets/24.png'
 import moshin from '../assets/moshin.png'
 import tanga from '../assets/tanga.png'
 import Footer from '../Footer';
-
+import Outstyle from '../components/ourcauld'
 
 
 const AboutPage = () => {
@@ -95,6 +95,7 @@ const AboutPage = () => {
           </div>
         </div>
       </div>
+  <Outstyle />
       <Footer />
     </div>
     

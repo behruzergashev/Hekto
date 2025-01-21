@@ -28,7 +28,7 @@
     overflow: hidden;
     transition: box-shadow 0.3s;
     width: 250px;
-    height: 360px;
+    height: 380px;
   }
   
   .product-card11:hover {
@@ -54,6 +54,10 @@
     position: absolute;
     top: 0;
     left: 0;
+    opacity: 1;
+    display: block;
+    transition: 0.5s ease;
+    backface-visibility: hidden;
   }
   
   .placeholder11 {
@@ -87,6 +91,90 @@
     font-weight: bold;
     color: #1f2937;
   }
+  .product-hover11 {
+    transition: 0.5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    gap: 5px;
+    margin-top: -80px;
+    margin-left: -50px;
+  }
+  .hoverlar{
+width: 100%;
+height: 20px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 5px;
+  }
+  .hover1{
+    width: 20px;
+    height: 5px;
+    background: rgba(5, 230, 183, 1);
+
+  }
+  .hover2{
+    width: 20px;
+    height: 5px;
+    background: rgba(247, 1, 168, 1);
+
+  }
+  .hover3{
+    width: 20px;
+    height: 5px;
+    background: rgba(0, 0, 157, 1);
+
+  }
+
+  
+  .product-card11:hover .product-image11 {
+    opacity: 0.3;
+  }
+  
+  .product-card11:hover .product-hover11 {
+    opacity: 1;
+  }
+  
+  .product-hover11-text {
+    background: rgba(238, 239, 251, 1);
+
+color: rgba(47, 26, 196, 1);
+width: 30px;
+height: 30px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+  
+  }
+  .product-hover11-text12 {
+
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(19, 137, 255, 1);
+      
+      }
+      .product-hover11-text13 {
+
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(19, 137, 255, 1);
+          
+          }
   
   .pagination11 {
     display: flex;

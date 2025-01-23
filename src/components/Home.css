@@ -44,7 +44,7 @@ margin-top: 54px;
     transform: scale(1.05);
     border-bottom: 4px solid orange;
 }
-/* .header9{
+.header9{
     width: 100%;
     height: 530px;
     background: rgba(241, 240, 255, 1);
@@ -120,7 +120,7 @@ color: rgba(21, 24, 117, 1);
     background-color:pink ;
    border: none;
    border-radius: 3px;
-} */
+}
 
 .stolcarlar{
     width: 100%;

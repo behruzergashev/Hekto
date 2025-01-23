@@ -12,7 +12,8 @@ import cardstol1 from '../assets/cardstol1.png'
 import cardstol2 from '../assets/cardstol2.png'
 import cardstol3 from '../assets/cardstol3.png'
 import cardstol4 from '../assets/cardstol4.png'
-
+// import ColorChangingProduct from "./Rangli"
+{/* <ColorChangingProduct /> */}
 import '../components/GridCard'
 import rasmcbhebc from '../assets/soatcard.png'
 import rasmcbhebc1 from '../assets/stolparta.png'
@@ -63,7 +64,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      {/* <div className="header9">
+      <div className="header9">
         <div className="header9main">
           <div className="main9left">
 <img src={headerstol} alt="" />
@@ -97,7 +98,7 @@ const Home = () => {
             </button>
           </div>
         </div>
-      </div> */}
+      </div>
       
       <div className="stolcarlar">
         <h1></h1>

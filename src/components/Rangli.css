@@ -1,0 +1,100 @@
+/* .header9 {
+    padding: 20px;
+  }
+  
+  .header9main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .main9left {
+    width: 50%;
+  }
+  
+  .main9left img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .mainright9 {
+    width: 45%;
+  }
+  
+  .mainright9 h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .radius {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+
+  .yumoloq3 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    background: rgba(43, 245, 204, 1);
+  
+  }
+  .yumoloq1 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    background: rgba(43, 43, 245, 1);
+    
+  }  .yumoloq2 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    background: rgba(245, 43, 112, 1);
+}
+
+  .radius p {
+    margin: 0;
+  }
+  
+  .color-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .color-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .color-button.selected {
+    border: 2px solid black;
+  }
+  
+  .mainbtn {
+    background-color: #fb2e86;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .mainbtn:hover {
+    background-color: #e91e63;
+  }
+  
+
+   */

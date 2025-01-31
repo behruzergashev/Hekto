@@ -3,6 +3,79 @@
   text-align: center;
 }
 
+
+
+.alert,
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4caf50;
+  color: white;
+  padding: 16px;
+  border-radius: 4px;
+  z-index: 1000;
+  animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+}
+
+.alert  {
+  margin-left: 90%;
+  position: fixed;
+  top: 20px;
+  right: 0px;
+  background-color: #4caf50;
+  color: white;
+  padding: 16px;
+  border-radius: 4px;
+  z-index: 1000;
+  animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+
+}
+
+.alert-1 {
+  top: 20px;
+}
+
+.alert-2 {
+  top: 90px; 
+}
+
+.text3 {
+  color: #000;
+  transition: color 0.3s ease;
+}
+
+.text3.liked {
+  color: red;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+}
+
+/* Other existing styles... */
+
+
+
+
 .grid-container1 {
   width: 90%;
   margin: 0 auto;

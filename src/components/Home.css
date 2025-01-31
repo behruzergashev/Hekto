@@ -117,7 +117,9 @@ color: rgba(21, 24, 117, 1);
     width:160px;
     height: 47px;
     margin-left: 0;
-    background-color:pink ;
+    background: rgba(251, 46, 134, 1);
+
+color: white;
    border: none;
    border-radius: 3px;
 }
@@ -478,6 +480,11 @@ margin-left: 200px;
   
     
   }
+  .stolcard1{
+    width: 300px;
+    margin: 0px;
+  }
+
 }
 @media (max-width: 1028px){
   .uchcard{
@@ -503,17 +510,126 @@ margin-left: 200px;
 .mainright9 h1{
 font-size: 30px;
 }
+
 }
-  @media (min-width: 768px) {
+@media (max-width: 950px){
+  .uchcard{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .cardlarmain{
+    width: 80%;
+    height: 1700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .discort2{
+    margin-top: 200px;
+  }
+  .carduzun{
+    width: 90%;
+    margin: 0 auto;
+  }
+  .carduzun2{
+    width: 90%;
+    margin: 20px auto;
+  }
+}
+@media (max-width: 900px){
+  .uchcard{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .cardlarmain{
+    width: 80%;
+    height: 1700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .discort2{
+    margin-top: 200px;
+  }
+  .header9main h1{
+    font-size: 20px;
+  }
+
+}
+
+  @media (max-width: 768px) {
+    .header9{
+      height: 800px;
+    }
+    .header9main{
+      height: 800px;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: center;
+      margin: 0 auto;
+    }
+    .mainright9 h1{
+      text-align: center;
+      width: 400px;
+      margin: 0 auto;
+    }
+    .radius{
+      margin: 20px auto;
+    }
+    .main9left{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .mainbtn{
+margin-top: 30px;    }
+    .mainright9{
+      width: 100%;
+    }
     .grid {
       grid-template-columns: 1fr 1fr;
     }
+    .discorleft{
+      width: 80%;
+      margin: 0 auto;
+    }
+    
   }
+  @media (max-width: 1068px){
+    .uchcard{
+      width: 80;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 50px 30px;
+    
+      
+    }
+    .stolcard1{
+      width: 300px;
+      margin: 0px;
+    }
   
+  }
+  @media (max-width: 708px){
+
+    .cardlarmain{
+      width: 80%;
+      height: 1800px;
+      display: grid;
+      grid-template-columns: 1fr ;
+      background-color: red;
+    }
+
+  .cardlar{
+    height: 1800px;
+  }
+  }
+
+
   @media (min-width: 1024px) {
     .grid {
       grid-template-columns: 1fr 1fr 1fr;
     }
   }
+  
   
   

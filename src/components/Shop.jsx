@@ -6,6 +6,7 @@ import { AiOutlineBars } from "react-icons/ai"
 import { CgMenuGridO } from "react-icons/cg"
 import "./ShopGrid.css"
 import Footer from "../Footer"
+import Toast from "./Toast"
 import Nom from "../assets/1.png"
 import Nom1 from "../assets/2.png"
 import Nom2 from "../assets/3.png"
@@ -32,29 +33,39 @@ const products = [
   { id: 11, name: "Vitae suspendisse sed", price: "$25.00", oldPrice: "$45.00", image: Nom10 },
 ]
 
-const ShopGrid = ({ setCart }) => {
+const Shop = ({ setCart, toggleLike, likedProducts }) => {
   const [searchId, setSearchId] = useState("")
   const [searchName, setSearchName] = useState("")
   const [sortOption, setSortOption] = useState("bestMatch")
-  //const [likedProducts, setLikedProducts] = useState([])
   const [selectedProduct, setSelectedProduct] = useState(null)
-
-  //useEffect(() => {
-  //  console.log("Liked products updated:", likedProducts)
-  //  const event = new CustomEvent("likedProductsUpdated", { detail: likedProducts })
-  //  window.dispatchEvent(event)
-  //}, [likedProducts])
+  const [showToast, setShowToast] = useState(false)
+  const [toastMessage, setToastMessage] = useState("")
+  const [showAlert, setShowAlert] = useState(false)
+  const [alertMessage, setAlertMessage] = useState("")
+  const [showAlert1, setShowAlert1] = useState(false)
+  const [showAlert2, setShowAlert2] = useState(false)
+  const [alertMessage1, setAlertMessage1] = useState("")
+  const [alertMessage2, setAlertMessage2] = useState("")
 
   const addToCart = (product) => {
     setCart((prevCart) => [...prevCart, product])
+    // Show first alert
+    // setAlertMessage1("Vaaaauuuuv")
+    setShowAlert1(true)
+    setTimeout(() => setShowAlert1(false), 3000)
+
+    setAlertMessage2(`vaauuv!!!`)
+    setShowAlert2(true)
+    setTimeout(() => setShowAlert2(false), 3000)
   }
 
-  //const toggleLike = (product) => {
-  //  setLikedProducts((prevLiked) => {
-  //    const isAlreadyLiked = prevLiked.some((p) => p.id === product.id)
-  //    return isAlreadyLiked ? prevLiked.filter((p) => p.id !== product.id) : [...prevLiked, product]
-  //  })
-  //}
+  const handleLike = (product) => {
+    toggleLike(product)
+    const isLiked = likedProducts.some((p) => p.id === product.id)
+    setToastMessage(isLiked ? ` remove like` : `like confirm`)
+    setShowToast(true)
+    setTimeout(() => setShowToast(false), 3000)
+  }
 
   const handleView = (product) => {
     setSelectedProduct(product)
@@ -149,12 +160,12 @@ const ShopGrid = ({ setCart }) => {
                   <div className="text2" onClick={() => handleView(product)}>
                     <FontAwesomeIcon icon={faSearch} />
                   </div>
-                  {/*<div
+                  <div
                     className={`text3 ${likedProducts.some((p) => p.id === product.id) ? "liked" : ""}`}
-                    onClick={() => toggleLike(product)}
+                    onClick={() => handleLike(product)}
                   >
                     <FontAwesomeIcon icon={faHeart} />
-                  </div>*/}
+                  </div>
                 </div>
               </div>
               <h3>{product.name}</h3>
@@ -174,47 +185,14 @@ const ShopGrid = ({ setCart }) => {
         )}
       </div>
 
-      {/*
-      {likedProducts.length > 0 && (
-        <div className="liked-products">
-          <h2>Yoqtirilgan mahsulotlar</h2>
-          <div className="grid-container1">
-            {likedProducts.map((product) => (
-              <div key={product.id} className="product-card">
-                <div className="rasmuchun">
-                  <img src={product.image || "/placeholder.svg"} alt={product.name} className="image" />
-                  <div className="middle">
-                    <div className="text" onClick={() => addToCart(product)}>
-                      <FontAwesomeIcon icon={faShoppingCart} />
-                    </div>
-                    <div className="text2" onClick={() => handleView(product)}>
-                      <FontAwesomeIcon icon={faSearch} />
-                    </div>
-                    <div className="text3 liked" onClick={() => toggleLike(product)}>
-                      <FontAwesomeIcon icon={faHeart} />
-                    </div>
-                  </div>
-                </div>
-                <h3>{product.name}</h3>
-                <div className="price">
-                  <span className="current-price">{product.price}</span>
-                  <span className="old-price">{product.oldPrice}</span>
-                </div>
-                <div className="displayflex">
-                  <div className="flex1"></div>
-                  <div className="flex2"></div>
-                  <div className="flex3"></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-      */}
-
       <Footer />
+
+     
+      {showAlert2 && <div className="alert alert-2">{alertMessage2}</div>}
+      {showToast && <Toast message={toastMessage} />}
     </div>
   )
 }
 
-export default ShopGrid
+export default Shop
+

@@ -1,0 +1,111 @@
+.header9 {
+    padding: 2rem;
+  }
+  
+  .header9main {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .main9left {
+    flex: 1;
+    position: relative;
+  }
+  
+  .main9left img {
+    width: 100%;
+    height: auto;
+    max-width: 900px;
+    transition: all 0.3s ease;
+  }
+  
+  .mainright9 {
+    flex: 1;
+  }
+  
+  .mainright9 h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #1a0b5b;
+  }
+  
+  .radius {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .radius:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+  }
+  
+  .yumoloq,
+  .yumoloq2,
+  .yumoloq3 {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+  
+  .yumoloq {
+    background-color: #ff9eb1;
+  }
+  
+  .yumoloq2 {
+    background-color: #9b70ff;
+  }
+  
+  .yumoloq3 {
+    background-color: #7dffba;
+  }
+  
+  .yumoloq.active,
+  .yumoloq2.active,
+  .yumoloq3.active {
+    transform: scale(1.3);
+  }
+  
+  .radius p {
+    color: #4b4b4b;
+    font-size: 1rem;
+    flex: 1;
+  }
+  
+  .mainbtn {
+    background-color: #fb2e86;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+  }
+  
+  .mainbtn:hover {
+    background-color: #e91a75;
+  }
+  
+  @media (max-width: 768px) {
+    .header9main {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  
+    .mainright9 h1 {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+  }
+  
+  

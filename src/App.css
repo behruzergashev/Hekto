@@ -14,6 +14,25 @@
   color: white;
 }
 
+.counter-badge {
+  position: absolute;
+  background: red;
+  color: white;
+  border-radius: 10px;
+  padding: 0 8px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.Wishis{
+  list-style: none;
+  text-decoration: none;
+  color: white;
+  /* display: flex;
+  align-items: center;
+  gap: 5px; */
+}
+
 .pushtidiv2{
   display: flex;
   align-items: center;
@@ -66,7 +85,11 @@
   color: black;
   font-weight: bold;
 }
-
+.phone-link{
+  list-style: none;
+  text-decoration: none;
+  color:white;
+}
 .main-navbar-links {
   list-style: none;
   display: flex;
@@ -132,13 +155,13 @@
 .blokcha {
   display: none;
   position: absolute;
-  top: 100px;
-  right: 0;
-  width: 400px;
+  top: 90px;
+    width: 400px;
   height: 400px;
-  background: #ff0000;
+  background: rgba(126, 51, 224, 1);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1000;
+  color: white;
 }
 
 .blokcha-active {
@@ -158,7 +181,11 @@
 
 .blokcha .mainblok ul li a {
   text-decoration: none;
-  color: #000;
+  color:white;
+}
+.Shoping{
+  position: relative;
+  display: inline-block;
 }
 @media (max-width: 1380px) {
 .logo {
@@ -183,6 +210,21 @@
   }
 }
 @media only screen and (max-width: 1000px){
+  
+  .pushtiora{
+display: grid;
+align-items: center;
+  }
+  .pushtidiv{
+    display: flex;
+    justify-content: space-between;
+gap: 0px;    
+  }
+
+  .pushtinavbar{
+    height: 100px;
+  }
+
   .logo {
     font-size: 24px;
     color: black;
@@ -196,7 +238,6 @@
 .foodiv{
   width: 100%;
   height: 700px;
-  background-color: red;
 }
 .foomain{
   width: 90%;
@@ -205,7 +246,6 @@
   display: grid;
   align-items: center;
   justify-content: center;
-  background-color: yellow;
 }
 .fooleft{
   width: 100%;
@@ -219,15 +259,18 @@
   align-items: center;
   justify-content: space-around;
   gap: 40px;
-  background-color: blue;
 }
 .fooleft h2{
   text-align: center;
 }
 .btncha_1{
   width: 200px;
-  margin-left: 50px;
+  margin-left: 200px;
 }
+form input{
+  margin-left: 200px;
+}
+
 .fooora{
   margin: 0;
   padding: 0;
@@ -239,6 +282,7 @@
 }
 
 @media only screen and (max-width: 950px){
+
   .logo {
     font-size: 24px;
     color: black;
@@ -253,6 +297,7 @@
 
   .barsicon{
     display: block;
+    margin-left: 450px;
   }
   .main-navbar {
     width: 100%;
@@ -265,8 +310,29 @@
     border-bottom: 1px solid #ddd;
  
   }
+  .stolcarlar{
+    height: 1500px;
+      }
+}
+@media only screen and (max-width: 800px){
+.barsicon{
+  margin-left: 300px;
+}
 
 }
+@media only screen and (max-width: 700px){
+  .barsicon{
+    margin-left: 300px;
+  }
+  .cardlarmain{
+    width: 80%;
+padding: 0px 0px 0px 100px;
+
+  }
+  .cardbir{
+    margin-left: -70px;
+  }
+  }
 @media only screen and (max-width: 1280px){
   .stolcarlar{
 height: 1000px;
@@ -280,10 +346,173 @@ height: 1000px;
   justify-content: center;
 }
 .stolcard1{
-  width: 400px;
+  width: 350px;
   margin-left: 80px;
 }
 .tepa{
   width: 100%;
 }
+}
+
+@media only screen and (max-width: 1000px){
+.stolcarlar{
+  height: 1500px;
+}
+.uchcard{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  margin: 30px auto;
+}
+.carduzun{
+  width: 100%;
+}
+.carduzun2{
+  width: 100%;
+}
+.tortcatt{
+margin: 0 auto;
+padding: 0;
+}
+.stolcard1{
+  width: 300px;
+}
+}
+
+@media only screen and (max-width: 948px){
+
+  .stolcarlar{
+height: 1300px;
+  }
+
+.discort{
+  margin-top: 300px;
+}
+.tortcatt{
+  display: grid;grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  margin-left: -50px;
+}
+.stolcard1{
+  width: 300px;
+}
+.tepa{
+  width: 100%;
+}
+
+}
+@media only screen and (max-width: 780px){
+  .stolcarlar{
+height: 1300px;
+  }
+.discort{
+  margin-top: 300px;
+}
+.tortcatt{
+  display: grid;grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  margin-left: -50px;
+}
+.stolcard1{
+  width: 250px;
+}
+.tepa{
+  width: 100%;
+}
+.pushtiora2{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+.fooright{
+  margin: 0 auto;
+  width: 550px;
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100%;
+  text-align: center;
+}
+.foomain{
+  height: 1000px;
+
+}
+.foodiv{
+  height: 1000px;
+}
+
+}
+@media (max-width: 708px){
+
+  .cardlarmain{
+    width: 80%;
+    height: 1500px;
+    display: grid;
+    grid-template-columns: 1fr ;
+    background-color: red;
+    justify-content: center;
+    margin: 30px auto;
+    padding: 0;
+  }
+
+.cardlar{
+  height: 1500px;
+}
+.cardbir{
+  margin: 0 auto;
+}
+}
+@media only screen and (max-width: 700px){
+  .stolcarlar{
+height: 1300px;
+  }
+.discort{
+  margin-top: 300px;
+}
+.tortcatt{
+  display: grid;grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  margin-left: -50px;
+}
+.stolcard1{
+  width: 250px;
+}
+.tepa{
+  width: 100%;
+}
+.pushtiora2{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+.fooright{
+  margin: 0 auto;
+  width: 550px;
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100%;
+  text-align: center;
+}
+.foomain{
+  height: 1000px;
+
+}
+.foodiv{
+  height: 1000px;
+}
+.container11{
+height: 2500px;
+
+}
+.product-grid11{
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.product-card11{
+  width: 400px;
+  height: 550px;
+}
+
 }

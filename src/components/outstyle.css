@@ -1,92 +1,113 @@
 .testimonial-carousel {
-    max-width: 48rem;
-    margin: 0 auto;
-    padding: 1rem;
-  }
-  
-  .carousel-title {
-    font-size: 1.875rem;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  
-  .carousel-container {
-    position: relative;
-  }
-  
-  .carousel-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .profile-images {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .profile-image {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 9999px;
-    object-fit: cover;
-  }
-  
-  .client-name {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-    color: aliceblue;
-  }
-  
-  .client-position {
-    font-size: 0.875rem;
-    color: #6b7280;
-    margin-bottom: 1.5rem;
-  }
-  
-  .testimonial-text {
-    text-align: center;
-    color: #4b5563;
-    max-width: 42rem;
-    min-height: 100px;
-  }
-  
-  .navigation-dots {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 2rem;
-  }
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
 
-  
-  .nav-dot {
-    height: 0.75rem;
-    width: 0.75rem;
-    padding: 0;
-  }
-  .dot-icon{
-    width: 100px;
-    height: 10px;
-    color: red;
-  }
-  .nav-dot.active {
-    background-color: var(--primary);
-  }
-  
-  .dot-icon {
-    height: 0.5rem;
-    width: 0.5rem;
-  }
-  
-  .nav-dot.active .dot-icon {
-    fill: var(--primary-foreground);
-  }
-  
-  .nav-dot:not(.active) .dot-icon {
-    fill: var(--muted);
-  }
-  
-  
+.carousel-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.carousel-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-images {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.profile-wrapper {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.profile-wrapper:hover {
+  transform: scale(1.1);
+}
+
+.profile-wrapper.active::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--primary, #007bff);
+  border-radius: 50%;
+}
+
+.profile-image {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 9999px;
+  object-fit: cover;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.profile-wrapper.active .profile-image {
+  border-color: var(--primary, #007bff);
+}
+
+.carousel-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.client-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--foreground);
+}
+
+.client-position {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-text {
+  text-align: center;
+  color: var(--muted-foreground);
+  max-width: 42rem;
+  min-height: 100px;
+  line-height: 1.6;
+}
+
+.navigation-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.nav-dot {
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.dot-icon {
+  height: 0.5rem;
+  width: 0.5rem;
+  color: var(--muted);
+  transition: color 0.3s ease;
+}
+
+.nav-dot.active .dot-icon {
+  color: var(--primary, #007bff);
+}
+

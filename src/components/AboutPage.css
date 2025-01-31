@@ -34,7 +34,11 @@ margin-left: 200px;
     align-items: center;
     gap: 0.5rem;
   }
-  
+  .cooontact{
+    list-style: none;
+    text-decoration: none;
+    color: white;
+  }
   .breadcrumb-item {
     color: #4b5563;
   }
@@ -132,7 +136,9 @@ margin-top: 54px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding-left: 100px;
+  margin-top: 30px;
 }
+
 }
 
 @media (min-width: 1200px) {

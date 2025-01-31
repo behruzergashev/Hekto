@@ -1,0 +1,82 @@
+.wishlist-container {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+  }
+  
+  .wishlist-container h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  .h1like{
+    text-align: center;
+    margin: 30px auto;
+    font-size: 40px;
+
+  }
+  
+  .wishlist-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .text3 {
+    cursor: pointer;
+  }
+  
+  .text3.liked {
+    color: red; 
+  }
+  
+  
+  .wishlist-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .wishlist-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .wishlist-details h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .wishlist-details p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+  
+  .remove-button {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .remove-button:hover {
+    background-color: #ff4757;
+  }
+  
+  .empty-message {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+  }
+  
+  

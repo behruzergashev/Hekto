@@ -32,47 +32,44 @@ const products = [
   { id: 11, name: "Vitae suspendisse sed", price: "$26.00", oldPrice: "$42.00", image: Nom10 },
 ];
 
-const ProductCard = ({ product, addToCart, toggleLike }) => (
+const ProductCard = ({ product, addToCart, toggleLike, isLiked }) => (
   <div className="product-item">
     <div className="productcardss">
-
-    <div className="image-container">
-      <img src={product.image || "/placeholder.svg"} alt={product.name} />
-    </div>
-    <div className="product-info">
-      <h3>
-        {product.name}
-        <div className="color-dots">
-          <span className="color-dot"></span>
-          <span className="color-dot"></span>
-          <span className="color-dot"></span>
-        </div>
-      </h3>
-      <div className="star-rating">★★★★★</div>
-      <p className="pricing">
-        <span className="current">{product.price}</span>
-        <span className="old">{product.oldPrice}</span>
-      </p>
-      <p className="product-description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.
-      </p>
-      <div className="action-buttons">
-        <button className="action-button1" onClick={() => addToCart(product)}>
-          <FontAwesomeIcon icon={faShoppingCart} />
-        </button>
-        <button className="action-button2" onClick={() => toggleLike(product)}>
-          <FontAwesomeIcon icon={faHeart} />
-        </button>
-        <button className="action-button3">
-          <FontAwesomeIcon icon={faSearch} />
-        </button>
+      <div className="image-container">
+        <img src={product.image || "/placeholder.svg"} alt={product.name} />
       </div>
-    </div>
+      <div className="product-info">
+        <h3>
+          {product.name}
+          <div className="color-dots">
+            <span className="color-dot"></span>
+            <span className="color-dot"></span>
+            <span className="color-dot"></span>
+          </div>
+        </h3>
+        <div className="star-rating">★★★★★</div>
+        <p className="pricing">
+          <span className="current">{product.price}</span>
+          <span className="old">{product.oldPrice}</span>
+        </p>
+        <p className="product-description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.
+        </p>
+        <div className="action-buttons">
+          <button className="action-button1" onClick={() => addToCart(product)}>
+            <FontAwesomeIcon icon={faShoppingCart} />
+          </button>
+          <button className="action-button2" onClick={() => toggleLike(product)}>
+            <FontAwesomeIcon icon={faHeart} style={{ color: isLiked ? 'red' : '' }} />
+          </button>
+          <button className="action-button3">
+            <FontAwesomeIcon icon={faSearch} />
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 )
-
-
 
 const ShopGrid = ({ setCart }) => {
   const [searchId, setSearchId] = useState("");
@@ -86,7 +83,7 @@ const ShopGrid = ({ setCart }) => {
   }, [likedProducts]);
 
   const addToCart = (product) => {
-    setCart((prevCart) => [...prevCart, product]); 
+    setCart((prevCart) => [...prevCart, product]);
   };
 
   const toggleLike = (product) => {
@@ -117,20 +114,20 @@ const ShopGrid = ({ setCart }) => {
 
   return (
     <div className="shop-container">
-    <nav>
-         <div className="navbarheader">
-           <div className="headermain">
-             <div className="mainleft">
-               <h1>Shop Grid Default</h1>
-               <ul>
-                 <li><Link to="/">Home</Link></li>
-                 <li><Link to="/pages">Pages</Link></li>
-                 <h4>Shop Grid Default</h4>
-               </ul>
-             </div>
-           </div>
-         </div>
-       </nav>
+      <nav>
+        <div className="navbarheader">
+          <div className="headermain">
+            <div className="mainleft">
+              <h1>Shop Grid Default</h1>
+              <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/pages">Pages</Link></li>
+                <h4>Shop Grid Default</h4>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
 
       <div className="filter-bar">
         <div className="results-info">
@@ -151,8 +148,8 @@ const ShopGrid = ({ setCart }) => {
           <li><Link to="/shop"><CgMenuGridO /></Link></li>
           <div>
             <label htmlFor="sortBy">Sort By:</label>
-            <select 
-              id="sortBy" 
+            <select
+              id="sortBy"
               value={sortOption}
               onChange={(e) => setSortOption(e.target.value)}
             >
@@ -176,10 +173,10 @@ const ShopGrid = ({ setCart }) => {
       <div className="product-grid">
         {sortedProducts.length > 0 ? (
           sortedProducts.map((product) => (
-            <ProductCard 
-              key={product.id} 
-              product={product} 
-              addToCart={addToCart} 
+            <ProductCard
+              key={product.id}
+              product={product}
+              addToCart={addToCart}
               toggleLike={toggleLike}
               isLiked={likedProducts.some(p => p.id === product.id)}
             />

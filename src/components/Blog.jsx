@@ -55,7 +55,7 @@ const AboutPage = () => {
             non diam laoreet. Accumsan facilisis vitae lobortis quis bibendum quis.
           </p>
           <button className="contact-button">
-            Contact us
+       <li><Link to="/Contact" className='cooontact'>         Contact us  </Link></li>
           </button>
         </div>
       </div>
